@@ -49,7 +49,7 @@ public:
 
 class BinaryOp : public Expr {
 public:
-  enum Operator { Plus, Minus, Mul, Div };
+  enum Operator { Plus, Minus };
 
 private:
   Expr *Left;

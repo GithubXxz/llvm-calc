@@ -43,10 +43,6 @@ void Lexer::next(Token &token) {
     break
       CASE('+', Token::plus);
       CASE('-', Token::minus);
-      CASE('*', Token::star);
-      CASE('/', Token::slash);
-      CASE('(', Token::l_paren);
-      CASE(')', Token::r_paren);
       CASE(':', Token::colon);
       CASE(',', Token::comma);
 #undef CASE

@@ -19,10 +19,6 @@ public:
     colon,
     plus,
     minus,
-    star,
-    slash,
-    l_paren,
-    r_paren,
     KW_with
   };
 

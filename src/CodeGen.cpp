@@ -89,18 +89,15 @@ public:
     case BinaryOp::Minus:
       V = Builder.CreateNSWSub(Left, Right);
       break;
-    case BinaryOp::Mul:
-      V = Builder.CreateNSWMul(Left, Right);
-      break;
-    case BinaryOp::Div:
-      BasicBlock *TrueDest, *FalseDest;
-      createICmpEq(Right, Int32Zero, TrueDest, FalseDest, "divbyzero",
-                   "notzero");
-      Builder.SetInsertPoint(TrueDest);
-      addThrow(42); // Arbitrary payload
-      Builder.SetInsertPoint(FalseDest);
-      V = Builder.CreateSDiv(Left, Right);
-      break;
+      // case BinaryOp::Div:
+      //   BasicBlock *TrueDest, *FalseDest;
+      //   createICmpEq(Right, Int32Zero, TrueDest, FalseDest, "divbyzero",
+      //                "notzero");
+      //   Builder.SetInsertPoint(TrueDest);
+      //   addThrow(42); // Arbitrary payload
+      //   Builder.SetInsertPoint(FalseDest);
+      //   V = Builder.CreateSDiv(Left, Right);
+      //   break;
     }
   }
 
@@ -253,7 +250,7 @@ void CodeGen::compile(AST *Tree) {
   //   '\n'; return;
   // }
 
-  // outputFile << "Hello, LLVM!\n";
-  M->print(outs(), nullptr);
+  // M->print(outputFile, nullptr);
   // outputFile.close();
+  M->print(outs(), nullptr);
 }
